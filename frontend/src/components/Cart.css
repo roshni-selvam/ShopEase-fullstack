@@ -1,0 +1,223 @@
+/* 🛒 Full Page Container */
+.cart-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.cart-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.cart-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.cart-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/*  Cart Card Box - Beautiful Glassmorphism Layout */
+.cart-card {
+  display: flex;
+  align-items: center;
+  gap: 25px; 
+  background: rgba(255, 255, 255, 0.85); 
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px; 
+  margin-bottom: 15px;
+  border: 1px solid rgba(224, 224, 224, 0.6);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+/*  Image Full & Big View Fix  */
+.cart-img {
+  width: 130px;         
+  height: 180px;        
+  object-fit: cover;    
+  object-position: top; 
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 📝 Cart Info & Typography */
+.cart-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-info h4 {
+  font-size: 18px; 
+  color: #222;
+  margin: 0;
+}
+
+.cart-meta {
+  font-size: 13.5px;
+  color: #666;
+  margin: 0;
+}
+
+/*  Pricing Styles */
+.cart-price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.cart-final    { font-size: 17px; font-weight: 700; color: #222; }
+.cart-original { font-size: 14px; color: #aaa; text-decoration: line-through; }
+.cart-discount { font-size: 13px; color: #b76e79; font-weight: 600; }
+
+/*  Quantity Controls (+ and - buttons) */
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cart-qty button {
+  width: 32px; 
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.cart-qty button:hover { 
+  background: #b76e79; 
+  color: #fff;
+  border-color: #b76e79;
+}
+
+.cart-qty span { font-size: 16px; font-weight: 600; min-width: 20px; text-align: center; }
+
+.cart-subtotal { 
+  font-size: 14.5px; 
+  color: #444; 
+  font-weight: 600; 
+  margin-top: 8px;
+}
+
+/*  Remove Button */
+.cart-remove {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cart-remove:hover { color: #b76e79; }
+
+/*  ORDER SUMMARY SIDEBAR */
+.cart-summary {
+  width: 320px;
+  background: #fff;
+  border: 1px solid #f0e0e3;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 4px 12px rgba(183, 110, 121, 0.05);
+}
+
+.cart-summary h3 { font-size: 19px; color: #222; margin-top: 0; }
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  color: #555;
+}
+
+.summary-row.total {
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+}
+
+.summary-divider {
+  border-top: 1px solid #f0e0e3;
+  margin: 4px 0;
+}
+
+.checkout-btn {
+  background: #b76e79;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15.5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.checkout-btn:hover { background: #a05c67; }
+
+.continue-btn {
+  background: none;
+  border: 1px solid #b76e79;
+  color: #b76e79;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.continue-btn:hover { background: #fdf4f5; }
+
+/* 🛒 EMPTY CART VIEW */
+.cart-empty {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cart-empty h2 { font-size: 26px; margin-bottom: 20px; color: #555; }
+
+.cart-empty button {
+  background: #b76e79;
+  color: #fff;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 8px;
+  font-size: 15.5px;
+  cursor: pointer;
+  font-weight: 600;
+}

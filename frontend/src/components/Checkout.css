@@ -1,0 +1,225 @@
+.checkout-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.checkout-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #222;
+}
+/* STEPS */
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.step {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 600;
+}
+.step.active { color: #b76e79; }
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: #e0d0d3;
+}
+
+/* LAYOUT */
+.checkout-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.checkout-form-wrap {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #f0e0e3;
+  border-radius: 12px;
+  padding: 28px;
+}
+.checkout-form h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #222;
+}
+.form-row {
+  display: flex;
+  gap: 14px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.form-group label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+}
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #e0d0d3;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  color: #222;
+}
+.form-group input:focus { border-color: #b76e79; }
+
+/* PAYMENT OPTIONS */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e0d0d3;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  transition: border 0.2s;
+}
+
+.payment-card input[type="radio"] { accent-color: #b76e79; }
+
+.payment-card.selected {
+  border-color: #b76e79;
+  background: #fdf4f5;
+}
+
+.card-fields { margin-top: 16px; }
+
+/* BUTTONS */
+.checkout-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkout-btn {
+  background: #b76e79;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+}
+
+.checkout-btn:hover { background: #a05c67; }
+
+.back-btn {
+  background: none;
+  border: 1px solid #b76e79;
+  color: #b76e79;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-btn:hover { background: #fdf4f5; }
+
+/* ORDER SUMMARY */
+.checkout-summary {
+  width: 320px; 
+  background: #fff;
+  border: 1px solid #f0e0e3;
+  border-radius: 12px;
+  padding: 24px;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkout-summary h3 { font-size: 18px; color: #222; }
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Summary Card Item Layout */
+.summary-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 4px;
+}
+
+/*  Img Full View Fix:  */
+.summary-item img {
+  width: 75px;          
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.summary-item > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.s-name  { font-size: 14px; font-weight: 600; color: #222; margin: 0; }
+.s-meta  { font-size: 12px; color: #777; margin: 0; }
+.s-price { font-size: 14.5px; color: #b76e79; font-weight: 700; margin: 0; }
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #555;
+}
+.summary-row.total { font-size: 16px; font-weight: 700; color: #222; }
+
+.summary-divider { border-top: 1px solid #f0e0e3; }
+
+/* SUCCESS */
+.checkout-success {
+  text-align: center;
+  padding: 80px 20px;
+}
+.success-icon {
+  width: 70px;
+  height: 70px;
+  background: #b76e79;
+  color: #fff;
+  font-size: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.checkout-success h2 { font-size: 28px; margin-bottom: 10px; color: #222; }
+.checkout-success p  { font-size: 16px; color: #888; margin-bottom: 28px; }
+
+.checkout-success button {
+  background: #b76e79;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
