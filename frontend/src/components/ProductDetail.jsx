@@ -4,6 +4,8 @@ import { useCart } from "./CartContext";
 import { useWishlist } from "./WishlistContext";
 import "./ProductDetail.css";
 
+const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 
 const COLORS = [
@@ -26,7 +28,7 @@ export default function ProductDetail() {
 
   // FETCH PRODUCT
   useEffect(() => {
-    fetch(`http://localhost:8080/api/products/${id}`)
+    fetch(`${API_URL}/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

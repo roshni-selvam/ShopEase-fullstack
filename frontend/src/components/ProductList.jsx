@@ -4,6 +4,9 @@ import "./ProductList.css";
 import { useCart } from "./CartContext";
 import { useWishlist } from "./WishlistContext";
 
+const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
+
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 
 export default function ProductList({ search }) {
@@ -20,7 +23,7 @@ export default function ProductList({ search }) {
   // products fetch
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8080/api/products/category/${category}`)
+    fetch(`${API_URL}/api/products/category/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

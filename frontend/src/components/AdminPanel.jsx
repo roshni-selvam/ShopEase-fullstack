@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminPanel.css";
 
+const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
 export default function AdminPanel() {
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ export default function AdminPanel() {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/products");
+      const res = await fetch(`${API_URL}/api/products`);
       if (res.ok) {
         const data = await res.json();
         setProducts(data);
@@ -57,7 +59,7 @@ export default function AdminPanel() {
   //  ORDERS 
   const fetchOrders = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/admin/orders", {
+      const res = await fetch(`${API_URL}/api/admin/orders`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +74,7 @@ export default function AdminPanel() {
   // USERS FETCH 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/admin/users", {
+      const res = await fetch(`${API_URL}/api/admin/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -102,7 +104,7 @@ export default function AdminPanel() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/admin/products", {
+      const res = await fetch(`${API_URL}/api/admin/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -152,7 +154,7 @@ export default function AdminPanel() {
   //  UPDATE 
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/admin/products/${editProduct.id}`, {
+      const res = await fetch(`${API_URL}/api/admin/products/${editProduct.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -188,7 +190,7 @@ export default function AdminPanel() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this product?")) return;
     try {
-      const res = await fetch(`http://localhost:8080/api/admin/products/${id}`, {
+      const res = await fetch(`${API_URL}/api/admin/products/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -207,7 +209,7 @@ export default function AdminPanel() {
   //  ORDER STATUS 
   const handleStatusUpdate = async (id, status) => {
     try {
-      await fetch(`http://localhost:8080/api/admin/orders/${id}/status?status=${status}`, {
+      await fetch(`${API_URL}/api/admin/orders/${id}/status?status=${status}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
