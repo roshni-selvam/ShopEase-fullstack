@@ -17,25 +17,25 @@ public class CartService {
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
 
-    // Token-ல இருந்து user எடுக்கிறோம்
+    // Extract user details from the JWT token
     private User getUserFromToken(String token) {
         String email = jwtUtil.extractEmail(token.replace("Bearer ", ""));
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found!"));
     }
 
-    // Cart பார்க்கிறோம்
+    // Get the user's cart
     public List<CartItem> getCart(String token) {
         User user = getUserFromToken(token);
         return cartRepository.findByUserId(user.getId());
     }
 
-    // Cart-ல add பண்றோம்
+    //  add product to Cart
     public CartItem addToCart(String token, CartItem item) {
         User user = getUserFromToken(token);
         item.setUserId(user.getId());
 
-        // Same product + size already இருந்தா qty update
+        // Update quantity if the product and size already exist in the cart
         List<CartItem> existing = cartRepository.findByUserId(user.getId());
         for (CartItem c : existing) {
             if (c.getProductId().equals(item.getProductId()) &&

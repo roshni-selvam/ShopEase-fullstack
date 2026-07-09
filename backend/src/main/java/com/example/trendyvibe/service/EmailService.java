@@ -14,7 +14,7 @@ public class EmailService {
     public void sendOrderConfirmation(String toEmail, String name, Long orderId, Double total, String address) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);
-        message.setSubject("✅ Order Confirmed - TrendyVibe #" + orderId);
+        message.setSubject(" Order Confirmed - TrendyVibe #" + orderId);
         message.setText(
                 "Hi " + name + "! 🛍️\n\n" +
                         "Your order has been placed successfully!\n\n" +

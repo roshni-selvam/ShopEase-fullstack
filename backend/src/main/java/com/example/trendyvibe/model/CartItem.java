@@ -14,8 +14,8 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;      // யாருடைய cart
-    private Long productId;   // எந்த product
-    private String size;      // size
-    private Integer qty;      // quantity
+    private Long userId;      // Cart owner
+    private Long productId;   // Product identifier
+    private String size;      // Product size
+    private Integer qty;      // Product quantity
 }

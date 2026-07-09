@@ -20,8 +20,8 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    // USER — எல்லா products பார்க்கலாம்
-    // USER — single product by id
+    // USER - Retrieve all available products
+    // USER - Retrieve a specific product by its ID
     @GetMapping("/api/products/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
 

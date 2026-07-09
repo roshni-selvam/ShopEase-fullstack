@@ -12,7 +12,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    // எல்லா products
+    // All products
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }

@@ -99,7 +99,7 @@ public class DataInitializer implements CommandLineRunner {
                     new Product(null, "Lightweight Daily Saree", "sarees", "Linen", 1499.0, 30, "https://i.pinimg.com/1200x/25/43/79/2543799b3af1e2a0c35b112e71f75763.jpg"),
                     new Product(null, "Golden Border Saree", "sarees", "Art Silk", 2299.0, 20, "https://i.pinimg.com/1200x/0d/d3/3e/0dd33e6cac4482694de3182654190fe5.jpg"),
 
-                     // CASUAL
+                    // CASUAL
                     new Product(null, "Oversized T-Shirt", "casual", "Cotton", 999.0, 30, "https://i.pinimg.com/736x/b4/a3/7e/b4a37eaae2c868e06aaf7e64513c636e.jpg"),
                     new Product(null, "Casual Denim Jacket", "casual", "Denim", 2499.0, 20, "https://i.pinimg.com/1200x/0e/71/60/0e71608ce4dc6e2addd9535a77a27db0.jpg"),
                     new Product(null, "Crop Top Combo", "casual", "Cotton Blend", 1299.0, 25, "https://i.pinimg.com/1200x/12/1d/42/121d428ad69bb0c019a5580ee58618e3.jpg"),
