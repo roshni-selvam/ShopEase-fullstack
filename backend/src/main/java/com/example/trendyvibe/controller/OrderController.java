@@ -16,10 +16,16 @@ public class OrderController {
 
     // User — order place
     @PostMapping("/api/orders")
-    public ResponseEntity<Order> placeOrder(
+    public ResponseEntity<?> placeOrder(
             @RequestHeader("Authorization") String token,
             @RequestBody Order order) {
-        return ResponseEntity.ok(orderService.placeOrder(token, order));
+        try {
+            Order saved = orderService.placeOrder(token, order);
+            return ResponseEntity.ok(saved);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Order Error: " + e.getMessage());
+        }
     }
 
     // User — my orders
