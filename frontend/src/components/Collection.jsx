@@ -53,7 +53,7 @@ const collections = [
   subtitle:"Classic Meets Contemporary.",
   desc:"Discover timeless sarees with a modern twist — perfect for weddings, festivals, and elegant evenings.",
   tag:"Elegant",
-  route:"saree",
+  route:"sarees",
   reverse:true,
   images:[
     "https://i.pinimg.com/736x/13/c3/4d/13c34d9191611a2590dc68c67f28865e.jpg",

@@ -281,7 +281,7 @@ export default function AdminPanel() {
                   <option value="western">Western</option>
                   <option value="party">Party</option>
                   <option value="traditional">Traditional</option>
-                  <option value="saree">Saree</option>
+                  <option value="sarees">Saree</option>
                   <option value="casual">Casual</option>
                 </select>
               </div>
