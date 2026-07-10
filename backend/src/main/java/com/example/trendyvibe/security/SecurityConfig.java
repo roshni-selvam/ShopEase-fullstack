@@ -21,7 +21,11 @@ public class SecurityConfig {
                 // CORS configuration to safely talk with React (localhost:5173 / Vercel cloud)
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOrigins(List.of("http://localhost:5173", "https://shop-ease-fullstack.vercel.app"));
+                    config.setAllowedOriginPatterns(List.of(
+                            "http://localhost:5173",
+                            "https://shopease-frontend-three.vercel.app",
+                            "https://shopease-frontend-*.vercel.app"
+                    ));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
                     config.setAllowCredentials(true);
