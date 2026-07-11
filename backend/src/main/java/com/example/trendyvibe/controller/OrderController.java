@@ -47,10 +47,4 @@ public class OrderController {
             @RequestParam String status) {
         return ResponseEntity.ok(orderService.updateStatus(id, status));
     }
-    // TEMPORARY - Clear all orders (remove after use)
-    @DeleteMapping("/api/admin/orders/clear-all")
-    public String clearAllOrders() {
-        orderService.deleteAllOrders();
-        return "All orders deleted!";
-    }
 }
