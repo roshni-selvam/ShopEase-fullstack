@@ -103,4 +103,8 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
+    // TEMPORARY
+    public void deleteAllOrders() {
+        orderRepository.deleteAll();
+    }
 }
