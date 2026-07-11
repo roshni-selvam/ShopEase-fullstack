@@ -55,23 +55,14 @@ public class OrderService {
         // CLEAR CART
         cartRepository.deleteByUserId(user.getId());
 
-        // SEND EMAIL
-        try {
-
-            emailService.sendOrderConfirmation(
-                    user.getEmail(),
-                    user.getName(),
-                    savedOrder.getId(),
-                    savedOrder.getTotalPrice(),
-                    savedOrder.getAddress()
-            );
-
-        } catch (Exception e) {
-
-            System.out.println(
-                    "Email failed: " + e.getMessage()
-            );
-        }
+        // SEND EMAIL (async - won't block order response)
+        emailService.sendOrderConfirmation(
+                user.getEmail(),
+                user.getName(),
+                savedOrder.getId(),
+                savedOrder.getTotalPrice(),
+                savedOrder.getAddress()
+        );
 
         return savedOrder;
     }
