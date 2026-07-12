@@ -26,8 +26,7 @@ function Contact() {
 
     e.target.reset();
   };
-
-  return (
+return (
     <section className="contact">
       <h2>Contact Us</h2>
 
@@ -36,23 +35,22 @@ function Contact() {
         onSubmit={sendEmail}
         className="contact-form"
       >
-
         <input
           type="text"
-          name="name"
+          name="user_name" // Updated to match template
           placeholder="Your Name"
           required
         />
 
         <input
           type="email"
-          name="email"
+          name="user_email" // Updated to match template
           placeholder="Your Email"
           required
         />
 
         <textarea
-          name="message"
+          name="message" // This was already correct
           placeholder="Your Message"
           rows="5"
           required
@@ -61,10 +59,8 @@ function Contact() {
         <button type="submit">
           Send Message
         </button>
-
       </form>
     </section>
   );
 }
-
 export default Contact;
