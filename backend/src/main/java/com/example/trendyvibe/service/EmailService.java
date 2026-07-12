@@ -1,33 +1,48 @@
 package com.example.trendyvibe.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
-@RequiredArgsConstructor
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    @Value("${resend.api.key}")
+    private String resendApiKey;
 
     @Async
     public void sendOrderConfirmation(String toEmail, String name, Long orderId, Double total, String address) {
         try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(toEmail);
-            message.setSubject(" Order Confirmed - TrendyVibe #" + orderId);
-            message.setText(
-                    "Hi " + name + "! 🛍️\n\n" +
+            RestTemplate restTemplate = new RestTemplate();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.setBearerAuth(resendApiKey);
+
+            Map<String, Object> body = new HashMap<>();
+            body.put("from", "ShopEase <onboarding@resend.dev>");
+            body.put("to", new String[]{toEmail});
+            body.put("subject", "Order Confirmed - ShopEase #" + orderId);
+            body.put("text",
+                    "Hi " + name + "! \n\n" +
                             "Your order has been placed successfully!\n\n" +
                             "Order ID: #" + orderId + "\n" +
-                            "Total: ₹" + total + "\n" +
+                            "Total: Rs." + total + "\n" +
                             "Delivery Address: " + address + "\n\n" +
                             "We'll notify you once it's shipped!\n\n" +
-                            "Thank you for shopping with TrendyVibe 💕"
+                            "Thank you for shopping with ShopEase"
             );
-            mailSender.send(message);
+
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+            restTemplate.postForObject("https://api.resend.com/emails", request, String.class);
+
             System.out.println("Email sent successfully to " + toEmail);
         } catch (Exception e) {
             System.out.println("Email failed: " + e.getMessage());
